@@ -1,6 +1,14 @@
 <h1>new post</h1>
 
 <%= form_for :post, url: posts_path do |f| %>
+  <% if @post.errors.any? %>
+    <%= pluralize(@post.errors.count, 'error') %>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <p><%=  f.label :title %>
   <%=  f.text_field :title %></p>
 
