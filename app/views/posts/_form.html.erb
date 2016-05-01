@@ -1,0 +1,17 @@
+<%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <%= pluralize(@post.errors.count, 'error') %>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p><%=  f.label :title %>
+  <%=  f.text_field :title %></p>
+
+  <p><%=  f.label :body %>
+  <%=  f.text_field :body %></p>
+
+  <p><%=  f.submit %></p>
+<% end %>
