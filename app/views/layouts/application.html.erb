@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="wrapper">
+    <nav>
+      <%= link_to "Blog", root_path %>
+      <button> admin login</button>
+      <button> admin logout</button>
+    </nav>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class:'alert') %>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
