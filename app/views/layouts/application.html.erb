@@ -15,10 +15,9 @@
     </nav>
 
     <% if user_signed_in? %>
-      <button> admin login</button>
-      <button> admin logout</button>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <% end %>
-    
+
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class:'alert') %>
     <% end %>
